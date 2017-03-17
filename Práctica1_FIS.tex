@@ -1,0 +1,361 @@
+\documentclass{article}
+\usepackage[Latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multirow, array}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\usepackage[left=2.50cm, right=2.50cm, top=3.00cm, bottom=3.00cm]{geometry}
+
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{    
+	\normalfont \normalsize
+	\textsc{\textbf{Fundamentos en Ingeniería del Software (2016-2017)} \\ Doble Grado en Ingeniería Informática y Matemáticas \\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
+	\horrule{2pt} \\[0.4cm] % Thin top horizontal rule
+	\huge Memoria Práctica 1 \\ % The assignment title
+	\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{Miguel Ángel Torres López \and Francisco José Ruiz Jiménez \and Francisco Gallego Salido \and Francisco Lopez Rodríguez} % Nombre y apellidos
+
+
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+	
+	\maketitle % Muestra el Título
+	
+	\newpage
+	
+	%----------------------------------------------------------------------------------------
+	%	Cuestión 1
+	%----------------------------------------------------------------------------------------
+	
+	\section{Objetivos}
+	
+	Este proyecto tiene como objetivo desarrollar un sistema software para gestionar el alquiler y compartición de vehículos y viviendas. El sistema deberá almacenar información
+	referente tanto a los usuarios que usen esta plataforma como a las viviendas y vehículos que quieran poner a disposición.
+	Los elementos disponibles serán visibles mediante una búsqueda hecha por cualquier persona que consulte la plataforma, pero sólo los usuarios registrados podrán hacer uso de los
+	servicios ofrecidos. Esta aplicación  facilita la comunicación entre usuarios que quieran compartir y alquilar viviendas y vehículos de manera sencilla. Así que uno de los objetivos
+	principales es la transparencia y sencillez ofrecida a los usuarios respecto a otras plataformas. La aplicación resultante será accesible desde la web y desde aplicaciones móviles.\\\\	
+	De forma paralela, se dispondrá de un servicio de puntuaciones y comentarios para los usuarios y los servicios ofertados por estos. Se dispondrá, asímismo, de un sistema de
+	mensajería segura, esto es, los usuarios podrán vincular su correo electrónico o su número de teléfono. Cuando un usuario escriba en la plataforma a otro, este mensaje llegará
+	al dispositivo sincronizado. Esto evita problemas de seguridad y mejora la privacidad.\\\\	
+	En resumen, los principales objetivos de esta aplicación son:	
+	\begin{itemize}
+		\setlength\itemsep{0em}	
+		\item Gestión de compartición y alquiler de vehículos y viviendas.
+		\item Facilitar la comunicación entre los usuarios con necesidades similares.
+		\item Acceso sencillo y simplificado a los servicios mediante software multiplataforma.
+		\item Seguridad y privacidad.
+	\end{itemize}
+			
+	\section{Descripción de implicados}
+	\subsection{\textbf{ENTORNO DE USUARIO}}
+	
+	Los ususarios directos del producto a desarrollar son personas que quieren alquilar y compartir vehículos.	
+	No es necesario tener un conocimiento previo en el uso de aplicaciones informáticas dada la sencillez.
+	
+	\subsection{\textbf{RESUMEN DE LOS IMPLICADOS}}
+	\begin{table}[h!]		
+		\begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{5cm}|}
+			\hline
+			\textbf{Nombre} & \textbf{Descripción} & \textbf{Tipo} & \textbf{Responsabilidades} \\
+			\hline
+			Visitante & Persona que visita la plataforma & Usuario sistema & \begin{itemize}
+																				\setlength\itemsep{-0.3em}														
+																				\item Buscar ofertas
+																				\item Registrarse como usuario
+																			\end{itemize}\\
+			\hline
+			Usuario  &   Persona registrada en la plataforma & Usuario sistema & \begin{itemize}
+																					 \setlength\itemsep{-0.3em}	
+																					 \item Buscar ofertas
+																					 \item Alquilar y aceptar ofertas
+																					 \item Ofrecer ofertas
+																				 \end{itemize} \\
+			\hline
+			Administrador & Representa a la persona encargada de gestionar & Usuario producto & \begin{itemize}
+																									\setlength\itemsep{-0.3em}	
+																									\item Gestionar la base de datos.
+																									\item Mantenimiento
+																									\item Moderador
+																								\end{itemize} \\
+			\hline
+		\end{tabular}  
+		\caption{Resumen de los implicados}\label{tab:implicados}
+	\end{table}
+	
+	\newpage
+	\textbf{\\\\VISITANTE\\}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{3cm} | p{8cm} |}
+			
+			\hline
+			\textbf{Representante} & Usuario anónimo \\
+			\hline
+			\textbf{Descripción} & Usuario de internet \\   
+			\hline
+			\textbf{Tipo} & Usuario casual que no tiene por qué estar registrado en la web. No participa de forma activa en el sistema.\\
+			\hline
+			\textbf{Responsabilidades} & Registrarse como usuario para poder realizar operaciones dentro de la plataforma. Ver ofertas de alquiler de vehículos y viviendas.\\
+			\hline
+			\textbf{Criterios de éxito} & Sencillez a la hora de registrarse y ver las ofertas disponibles en el sistema. \\
+			\hline
+			\textbf{Implicación} & Visitará el sistema para informarse de ofertas de alquiler y/o compartición de vehículos y/o viviendas.\\
+			\hline
+			\textbf{Comentarios cuestiones} & \\
+			\hline
+		\end{tabular}
+		\caption{Perfil de visitante}\label{tab:visitante}
+	\end{table}
+	
+	\vspace{2cm}
+	
+	\textbf{USUARIO\\}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{3cm} | p{8cm} |}
+			
+			\hline
+			\textbf{Representante} & Usuario registrado con su nick. \\
+			\hline
+			\textbf{Descripción} & Usuario que se ha registrado en la plataforma. \\   
+			\hline
+			\textbf{Tipo} & Usuario activo duradero en el tiempo. Participa de forma activa en el sistema. \\
+			\hline
+			\textbf{Responsabilidades} & Subir ofertas de vehículos y casas. Participación en los alquileres. Interactuar con el resto de la comunidad. \\
+			\hline
+			\textbf{Criterios de éxito} & Participación efectiva del usuario en la comunidad. Actuar de forma educada con el resto de usuarios. Poner ofertas reales de vehículos y viviendas, ya que
+			la plataforma está diseñada para ese fin. \\
+			\hline
+			\textbf{Implicación} & El usuario creará ofertas y, en caso de cubrir sus intereses, aceptará ofertas de otros usuarios. \\
+			\hline
+			\textbf{Comentarios cuestiones} & \\
+			\hline
+		\end{tabular}
+		\caption{Perfil de Usuario}\label{tab:usuario}
+	\end{table}
+	
+	\newpage	
+	\textbf{ADMINISTRADOR\\ }
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{3cm} | p{8cm} |}
+			
+			\hline
+			\textbf{Representante} & Ingeniero cualificado para gestionar el sistema. \\
+			\hline
+			\textbf{Descripción} & Persona encargada de gestionar y mantener la base de datos. (Administrador) \\   
+			\hline
+			\textbf{Tipo} & Experto. \\
+			\hline
+			\textbf{Responsabilidades} & Crear y gestionar la base de datos de todas las ofertas. Mantenimiento de la base de datos.  Regular usuarios conflictivos. Hacer la plataforma sencilla y amigable. \\
+			\hline
+			\textbf{Criterios de éxito} & Hay éxito si la plataforma esta operativa siempre, si las ofertas son fiables y los usuarios respetuosos. Si es segura también hay éxito. Si consigue aumentar el número de usuarios atraidos por el buen funcionamiento de la plataforma.\\
+			\hline
+			\textbf{Implicación} & Administra la parte interna de la aplicación. No es visible por el resto de usuarios.\\
+			\hline
+			\textbf{Comentarios cuestiones} & Esta familiarizado con sistemas informáticos. \\
+			\hline
+		\end{tabular}
+		\caption{Perfil de Administrador}\label{tab:administrador}
+	\end{table}
+	
+	
+	\textbf{\\PRINCIPALES NECESIDADES DE LOS IMPLICADOS\\}
+	
+	\begin{tabular}{|p{3cm}|c|p{3cm}|p{3cm}|p{4cm}|}
+		\hline
+		\textbf{Necesidad} & \textbf{Prioridad} & \textbf{Problema} & \textbf{Solución actual} & \textbf{Solución propuesta} \\
+		\hline
+		Consultas & Alta & ¿Cómo busco persona que oferten alquiler o compartición de vehículos y/o viviendas? & Complicadas búsquedas en la web y comparación manual de ofertas & Ofrecer una plataforma sencilla para hacer búsquedas de forma rápida y simple. Búsquedas con  filtros (fecha, precio, etc...) \\
+		\hline
+		Ofrecer vehículo y/o viviendas para alquiler o compartición & Alta  & ¿Cómo puedo publicitar mis ofertas de alquiler o compartición? & Mostrar anuncios en páginas web publicitarias o contactar con una empresa que publicite tu anuncio. & Anunciar tu oferta en una plataforma dirigida a dicho fin. \\
+		\hline
+		Comunicación entre los usuarios & Media-Alta & ¿Cómo contacto con otro usuario para llegar a un acuerdo? & Comunicación mediante con la empresa como intermediaria o a través de un número de teléfono & Además de las soluciones actuales, proveer de un chat para poder comunicarse a través de la aplicación. \\
+		\hline
+		Estado de las ofertas & Media & ¿Cómo se que una oferta sigue disponible o aún no están completadas las plazas? & Preguntar al usuario que ha publicado su oferta & Incluir en el anuncio de dicha oferta una descripción sobre el estado de dicha oferta (reservas realizadas, reservas disponibles, completo, etc...) \\
+		\hline
+	\end{tabular}
+	
+	\vspace{10mm}
+	
+	\section{Requisitos}
+	
+	En esta sección se definen y describen las características de alto nivel (requisitos funcionales) del sistema que son esenciales para cubrir las necesidades de los usuarios. Para
+	facilitar su lectura y análisis, los requisitos se presentan en forma de lista estructurada.
+	
+	\subsection{Funcionales}
+	
+	    \begin{itemize}
+	    	\item \textbf{}
+	    	\begin{enumerate}[label=\bfseries{RF-} \arabic*:]
+	    		\item \textbf{Gestión de ofertas}
+	    		
+	    		 El sistema llevará el control de todas las ofertas realizadas por otros usuarios distinguiendo entre alquiler o compartición y vehículo/vivienda
+	    		\begin{enumerate}[label=\bfseries{1.}\arabic*:]
+	    			\item Compartición
+	    			\begin{enumerate}[label=\bfseries{1.1.}\arabic*:]
+	    				\item Se llevará un control de todas las ofertas incluyendo una descripción de su estado y disponibilidad de estas y puntuación del usuario que realiza la oferta de compartición.
+	    			\end{enumerate}
+	    			\item Alquiler
+	    			\begin{enumerate}[label=\bfseries{1.2.}\arabic*:]
+	    				\item Se llevará un control de todos los anuncios de alquiler, la disponibilidad de estos y la puntuación del usuario que ofrece el alquiler.
+	    			\end{enumerate}
+	    		\end{enumerate}
+	    		
+	    		\item \textbf{Gestión de solicitudes/reservas}
+	    		
+	    		 El sistema llevará un control de las solicitudes/reservas realizadas sobre cada oferta.
+	    		\begin{enumerate}[label=\bfseries{2.}\arabic*:]
+	    			\item Cada oferta tendrá asociada una lista con los usuarios que han hecho la solicitud/reserva así como información de contacto y puntuación de dichos usuarios como demandantes.
+	    		\end{enumerate}
+	    		\item \textbf{Gestión de Usuarios}
+	    		
+	    		 Se llevará un control de todos los usuarios en cada momento
+	    		\begin{enumerate}[label=\bfseries{3.}\arabic*:]
+	    			\item Registrar como usuario a  un visitante de la página.
+	    			\item Obtener información de un usuario determinado.
+	    			
+	    			\begin{enumerate}[label=\bfseries{3.2.}\arabic*:]
+	    				\item Ver los datos personales de un usuario
+	    				\item Ver las reservas de un usuario en un momento determinado.
+	    			\end{enumerate}
+	    			\item Modificar los datos del usuario.
+	    			\item Dar de baja al usuario , a petición del mismo.
+	    		\end{enumerate}
+	    	\end{enumerate}
+	    	
+	    \end{itemize}
+	
+	\subsection{No funcionales}
+	
+	\begin{itemize}
+		\item \textbf{Usabilidad}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*:]			
+			\item Se deberá proporcionar ayuda en línea con instrucciones paso a paso para guiar al usuario en las tareas que debe realizar.
+			\item Se usarán asistentes que guíen en los procesos de petición de alquiler y compartición de vehículos y viviendas.
+			\item Se deberán comunicar con una notificación, por ejemplo, para avisar de que se ha cancelado una reserva, o de si ha habido algún imprevisto, ya que es necesario que se comunique en un plazo de tiempo mínimo.
+		\end{enumerate}
+		\item \textbf{Fiabilidad}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*:]
+			\setcounter{enumi}{3}
+			\item Para prever caídas del sistema, se harán copias de seguridad.
+			\item Durante algún tiempo y, hasta que el sistema esté totalmente probado, los ususarios se realizarán reservas mediante el chat.
+			\item El sistema dará una mala puntuación a usuarios que tengan incidencias en la plataforma.
+			\item El sistema de puntuación será visible a todos los usuarios, pero la información personal será privada.
+			\item El sistema pedirá a los usuarios información relevante para  su identificación y evitar cuentas de robots automáticos.
+			\item Encriptación de mensajes en el chat y de la información de la base de datos en los servidores.
+		\end{enumerate}
+		\item \textbf{Rendimiento}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*:]
+			\setcounter{enumi}{9}
+			\item Para mejorar el sistema de reservas, será posible hacerlas de forma automática sin tener que abrir un chat con el otro usuario, solo será necesario pulsar el botón de reserva.
+			\item Para acelerar las consultas dispondremos de discos duros SSD, donde tendremos la información que se pida más frecuentemente, mientras que toda la información será almacenada en el data center.
+			\item El sistema proporcionará acceso rápido a las ofertas de la base de datos, no tardando más de 10 segundos. La base de datos tendrá que estar preparada para alojar tantos usuarios como sea necesario, alrededor de 100000 usuarios registrados al principio, pero se deberá incrementar posteriormente.
+			
+		\end{enumerate}
+		\item \textbf{Soporte:}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*]
+			\setcounter{enumi}{12}
+			\item El producto será implementado en una página web, como aplicación móvil (para dispositivos Android,Mac,WindowsPhone) y para tablets del mercado.
+			\item El sistema será mantenido por un grupo de empleados organizados de manera jerárquica y repartidos por secciones, estos se encontrarán dirigidos por un administrador del sistema.
+		\end{enumerate}
+		\item \textbf{Restricciones de implementacion}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*]
+			\setcounter{enumi}{14}
+			\item Se deberá usar lenguaje para la web HTML5 y CSS3, para la base de datos MySQL, para los formularios utilizaremos PHP y JavaScript.
+			\item Utilizaremos los mismos lenguajes para la base de datos y para los formularios, pero para cada sistema operativo móvil o tablet utilizaremos el lenguaje más apropiado(Android,Swift,...).
+		\end{enumerate}
+		\item \textbf{Requisitos físicos:}
+		\begin{enumerate}[label=\bfseries{RNF-}\arabic*]
+			\setcounter{enumi}{16}
+			\item El sistema deberá tratar los datos de usuario en tiempo real y  cada usuario podrá realizar sus reservas y consultas desde sus dispositivos.
+			\item Los datos del sistema de base de datos usados estarán actualizados en todo momento.
+			
+		\end{enumerate}
+	\end{itemize}
+	
+	
+	\subsection{Información}	
+	\begin{itemize}
+		\item Se incluye a información que es necesaria almacenar en el sistema.	
+		\begin{enumerate}[label=\bfseries{RF-} \arabic*:]
+			\item \textbf{Vehículos en alquiler}\\
+			Descripción de cada oferta de vehículo en alquiler.\\
+			\textbf{Contenido:} descripción del vehículo, precio de alquiler, estado de la oferta, características adicionales.
+			
+			\item \textbf{Vehículos para compartir}\\
+			Descripción de todas las ofertas para compartir vehículo.\\
+			\textbf{Contenido:} descripción del vehículo, precio para compartir, número de reservas realizadas, fecha del viaje, origen y destino, características adicionales.
+			
+			\item \textbf{Viviendas en alquiler}\\
+			Descripción de todas las viviendas puestas en alquiler.\\
+			\textbf{Contenido:} descripción de la vivienda, precio de alquiler, estado de la oferta, características adicionales.
+			
+			\item \textbf{Viviendas para compartir}\\
+			Descripción de todas las ofertas para compartir vivienda.\\
+			\textbf{Contenido:} descripción de la vivienda, dirección de la vivienda, precio para compartir vivienda, número de reservas realizadas, características adicionales.
+			
+			\item \textbf{Solicitudes/reservas}\\
+			Información sobre cada solicitud/reserva realizada.\\
+			\textbf{Contenido:} descripción sobre cada solicitud/reserva, oferta asociada.
+			
+			\item \textbf{Usuarios registrados}\\
+			Información sobre cada usuario registrado en la plataforma.\\
+			\textbf{Contenido:} datos personales, fecha de registro, historial de solicitudes y reservas realizadas, historial de ofertas realizadas, puntuación como usuario demandante, puntuación como usuario ofertante.
+		\end{enumerate}
+	\end{itemize}
+	\section{Glosario}
+	
+	\begin{itemize}
+		\item \textbf{Administrador}. Persona, probablemente con conocimientos avanzados de informática, que se encarga de gestionar y mantener el sistema en funcionamiento.
+		\item \textbf{Alquilar}. Puede verse desde dos perspectivas. Acción de pagar por un objeto para uso y su posterior devolución en un período de tiempo o acción de dar un objeto
+		temporalmente a cambio de dinero. Ambas perspectivas se refieren a las dos partes de una transacción temporal.
+		\item \textbf{Aplicación}. Conjunto de sistemas informáticos diseñados con el propósito de ofrecer el servicio planteado a los usuarios desde los dispositivos de estos.
+		\item \textbf{Chat}. Software embebido en la plataforma que manda de manera instantánea mensajes a otro usuario. Es necesario estar registrado como un usuario para utilizarlo.
+		\item \textbf{Compartición}. Hecho o acto de compartir una vivienda o un vehículo.
+		\item \textbf{Compartir}. Hacer uso de una vivienda o un vehículo junto con otra persona.
+		\item \textbf{Comunidad}. Conjunto de personas que participan e interactúan entre ellos dentro de la plataforma.
+		\item \textbf{DataCenter}. En español, centro de datos. Lugar físico donde se almacenan los datos generados con el uso de la plataforma. En el DataCenter se guardarán las
+		cuentas, la información personal de cada cuenta, las ofertas creadas y las ofertas aceptadas. Con el paso del tiempo se irán eliminando las ofertas, pero se guardará un historial
+		de al menos unos meses.
+		\item \textbf{Dar de baja}. Eliminar una cuenta y con ella toda la información personal adjunta y las ofertas realizadas o aceptadas por el usuario que la posee. Solo se puede llevar
+		a cabo esta acción con el consentimiento del mismo usuario.
+		\item \textbf{Dispositivo}. Hardware desde el cual el usuario va a poder acceder a la plataforma.
+		\item \textbf{Nick}. Sobrenombre que utiliza una persona para identificarse en la plataforma, web o aplicación. Puede ser su nombre real o un apodo, aunque se aconseja que sea
+		su nombre real para dar más seguridad al resto de usuarios.
+		\item \textbf{Oferta}. Alquiler o compartición de una vivienda o un vehículo que propone un usuario en la plataforma.
+		\item \textbf{Petición}. Acción de aceptar una oferta puesta por algún usuario. El hecho de pedir a un usuario una de sus ofertas no garantiza que la transacción esté realizada. Es
+		el usuario que realizó la oferta el encargado de cerrar definitivamente el trato.
+		\item \textbf{Plataforma}. Abstración del conjunto de sistemas diseñados para ofrecer el servicio propuesto. Se accede a la plataforma desde una aplicación o desde la web. Para
+		acceder a la plataforma no es necesario tener una cuenta, aunque si es necesario si se quiere tener acceso a todas las funcionalidades de ésta.
+		\item \textbf{Puntuación}. Referido a los usuarios. Calificación que la comunidad ha adjudicado un usuario en base a su comportamiento en relación con las ofertas que a aceptado
+		o que ha realizado. Dentro de la calificación se tienen en cuenta la amabilidad, la discreción, la seriedad y el servicio dado al resto de usuarios.
+		\item \textbf{Registrar}. Acceder a la plataforma idéntificandote con distintos datos personales como nick, nombre, correo eletrónico, teléfono, etc.
+		\item \textbf{Tiempo-Real}. Aplicado sobre una acción implica que los cambios que realiza dicha acción serán visibles por el resto de usuarios de manera inmediata.
+		\item \textbf{Usuario}. Persona que posee una cuenta y la utiliza para entrar en el sistema.
+		\item \textbf{Vehículo}. Transportes que se van a alquilar en la plataforma. Normalmente serán coches aunque no se descarta la idea de incorporar bicicletas, furgonetas u otros
+		vehículos de transporte no masivo (por ejemplo autobuses, barcos de gran capacidad o aviones privados).
+		\item \textbf{Visitante}. Persona no registrada en la plataforma que accede a esta. Tiene funcionalidad limitada ya que no puede puntuar o escribir a otros usuarios, ni aceptar
+		ofertas, aunque si puede verlas.
+		\item \textbf{Vivienda}. Inmueble de caracter familiar y privado que se alquila o se comparte en la plataforma. No se admiten inmuebles de uso plural como bares, tiendas, salas,
+		naves industriales y, en general, cualquier tipo de inmueble destinado a producción económica.
+		
+	\end{itemize}
+	
+\end{document}
