@@ -1,0 +1,100 @@
+\input{preambuloSimple.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{	
+\normalfont \normalsize 
+\textsc{\textbf{Fundamentos de Ingeniería del Software (2016-2017)} \\ Grado en Ingeniería Informática \\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{2pt} \\[0.4cm] % Thin top horizontal rule
+\huge Práctica 2 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Miguel Ángel Torres López \and Francisco José Ruiz Jiménez \and Francisco Gallego Salido \and Francisco Lopez Rodríguez} % Nombre y apellidos
+
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Muestra el Título
+
+\newpage %inserta un salto de página
+
+\tableofcontents % para generar el índice de contenidos
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Cuestión 1
+%----------------------------------------------------------------------------------------
+
+\section{Objetivos}
+
+Esta sección tiene como objetivo presentar y definir los casos de uso necesarios para comprender mejor el sistema planteado en la práctica 1. Al glosario de términos, 
+la descripción de actores y la especificación de requisitos ahora añadimos los casos de uso y la relación de estos con los actores.
+
+\vspace{8mm}
+
+\section{Jerarquía de casos de uso}
+\subsection{Gestión de Usuarios}
+\textbf{Descripción:}\\
+Escenarios asociados con acciones sobre los socios.\\
+\textbf{Casos de uso:}\\
+	\begin{itemize}
+		\item Registro de usuario.
+		\item Baja de usuario.
+		\item Modificar datos de usuario.
+		\item Consultar perfil de usuario.
+		\item Consultar reservas actuales.
+		\item Consultar historial de reservas.
+		\item Añadir viviendas o vehículos al perfil.
+		\item Gestionar viviendas y vehículos.
+	\end{itemize}
+\subsection{Gestión de Solicitudes y Reservas}
+\textbf{Descripción:}\\
+Escenarios asociados con la gestión de solicitudes y reservas.\\
+\textbf{Casos de uso:}\\
+	\begin{itemize}
+		\item Solicitar/Reservar vehículo o vivenda.
+		\item Cancelar solicitud.
+		\item Gestionar críticas y puntuaciones de solicitantes.
+		\item Adjuntar mensajes a una solicitud.
+	\end{itemize}
+\subsection{Gestión de Ofertas}
+\textbf{Descripción:}\\
+Escenarios asociados con la gestión de ofertas de usuarios.\\
+\textbf{Casos de uso:}\\
+	\begin{itemize}
+		\item Búsqueda de ofertas.
+		\item Gestión de ofertas realizadas.
+		\item	Consultar disponibilidad de ofertas.
+		\item Gestionar críticas y puntuaciones de solicitantes.
+		\item Publicación de ofertas de vehículos y viviendas.
+		\item Sesgar ofertas por preferencias.
+		\item Cancelar ofertas antes de la fecha de uso.											
+	\end{itemize}
+
+\section{Diagrama de paquetes}
+\begin{figure}[H] 
+\centering
+\includegraphics[scale=0.7]{Diagrama_de_paquetes.png}  
+\caption{Diagrama de paquetes} \label{fig:figura1}
+\end{figure}
+
+\section{Diagramas de casos de uso}
+\subsection{Gestión de usuarios}
+\subsection{Gestión de solicitudes y reservas}
+\subsection{Gestión de ofertas}
+\end{document}
