@@ -30,8 +30,6 @@
 
 \tableofcontents % para generar el índice de contenidos
 
-\newpage
-
 \listoffigures
 
 \newpage
@@ -87,14 +85,196 @@ Escenarios asociados con la gestión de ofertas de usuarios.\\
 	\end{itemize}
 
 \section{Diagrama de paquetes}
-\begin{figure}[H] 
-\centering
-\includegraphics[scale=0.7]{Diagrama_de_paquetes.png}  
-\caption{Diagrama de paquetes} \label{fig:figura1}
-\end{figure}
-
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.6]{Diagrama_de_paquetes.png}  
+		\caption{Diagrama de paquetes} \label{fig:figura1}
+	\end{figure}
+\newpage
 \section{Diagramas de casos de uso}
-\subsection{Gestión de usuarios}
-\subsection{Gestión de solicitudes y reservas}
-\subsection{Gestión de ofertas}
+	\subsection{Gestión de usuarios}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=1.15\linewidth]{Gestion_usuarios}
+			\caption{diagrama gestión de usuarios}
+			\label{fig:gestionusuarios}
+		\end{figure}
+\newpage
+	\subsection{Gestión de solicitudes y reservas}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=1\linewidth]{Gestion_solicitudes_reservas}
+			\caption{diagrama gestión de solicitudes y reservas}
+			\label{fig:gestionsolicitudesreservas}
+		\end{figure}
+\newpage
+	\subsection{Gestión de ofertas}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=1.2\linewidth]{Gestion_de_ofertas}
+			\caption{diagrama gestión de ofertas}
+			\label{fig:gestionofertas}
+		\end{figure}
+		
+\newpage
+
+\section{Descripción básica de casos de uso}
+	\subsection{Actores}
+	\vspace{-5mm}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.78\linewidth]{img/actores/Usuario_con_registro}
+		\label{fig:administrador}
+	\end{figure}
+	\vspace{-5mm}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.82\linewidth]{img/actores/Usuario_sin_registro}
+		\label{fig:administrador}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/actores/Sistema}
+		\label{fig:administrador}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.91\linewidth]{img/actores/Usuario_ofertante}
+		\label{fig:administrador}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/actores/Usuario_solicitante}
+		\label{fig:administrador}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/actores/Administrador}
+		\label{fig:administrador}
+	\end{figure}
+	
+\clearpage
+
+\subsection{Casos de uso}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/casos/usuarios/Gestion_usuarios_registro}
+		\label{fig:gestionusuariosregistro}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.94\linewidth]{img/casos/usuarios/Gestion_usuarios_modificar_datos}
+		\label{fig:gestionusuariosmodificardatos}
+	\end{figure}ç
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/casos/usuarios/Gestion_usuarios_dar_de_baja}
+		\label{fig:gestionusuariosdardebaja}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.95\linewidth]{img/casos/usuarios/Gestion_usuarios_consultar_perfil}
+		\label{fig:gestionusuariosconsultarperfil}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/usuarios/Gestion_usuarios_consultar_reservas}
+		\label{fig:gestionusuariosconsultarreservas}
+	\end{figure}
+			
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/usuarios/Consulta_historial_reservasCU-6}
+		\label{fig:consultahistorialreservascu-6}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/usuarios/Aniadir_vivienda_o_vehiculo_al_perfilCU-7}
+		\label{fig:anadirviviendaovehiculoalperfilcu-7}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/usuarios/Gestion_usuarios_administrar_propiedades}
+		\label{fig:gestionusuariosadministrarpropiedades}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/solicitudes_reservas/Caso_solicitud_reserva}
+		\label{fig:casosolicitudreserva}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/solicitudes_reservas/Caso_cancelacion_solicitudes}
+		\label{fig:casocancelacionsolicitudes}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/solicitudes_reservas/Caso_adjuntar_mensaje_a_solicitud}
+		\label{fig:casoadjuntarmensajeasolicitud}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/solicitudes_reservas/Caso_administrar_solicitudes}
+		\label{fig:casoadministrarsolicitudes}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/solicitudes_reservas/Caso_administrar_criticas}
+		\label{fig:casoadministrarcriticas}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/filtro_busqueda}
+		\label{fig:filtrobusqueda}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/busqueda_ofertas}
+		\label{fig:busquedaofertas}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/criticas_y_puntuaciones}
+		\label{fig:criticasypuntuaciones}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/disponibilidad}
+		\label{fig:criticasypuntuaciones}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/publicar_ofertas}
+		\label{fig:criticasypuntuaciones}
+	\end{figure}
+\clearpage
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/cancelar_ofertas}
+		\label{fig:criticasypuntuaciones}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/casos/ofertas/administrar_ofertas}
+		\label{fig:criticasypuntuaciones}
+	\end{figure}
 \end{document}
+
+
